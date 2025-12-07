@@ -15,7 +15,7 @@ func TestP1(t *testing.T) {
 	t.Run("day3 test data", func(t *testing.T) {
 		got := SolveP1(day3_test_data)
 
-		want := 0
+		want := 17155
 
 		if got != want {
 			t.Errorf("got %d, want %d", got, want)
