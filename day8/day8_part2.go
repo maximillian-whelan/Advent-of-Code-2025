@@ -21,10 +21,6 @@ func calculateGroupSizesP2(jb []JB) bool {
 		}
 	}
 
-	if len(cmap) != len(jb) {
-		return false
-	}
-
 	groups := make([][]int, len(jb))
 	idx := 0
 
@@ -89,10 +85,12 @@ func findShortestDistanceP2(jb []JB) int {
 		return dictSlice[i].second < dictSlice[j].second
 	})
 
-	for i, k := range dictSlice {
+	cmap := make(map[int][]int)
+	for _, k := range dictSlice {
 		pair := k.first
 		jb[pair.first].connected = append(jb[pair.first].connected, pair.second)
-		if i > len(jb)*2+1 {
+		cmap[pair.first] = append(cmap[pair.first], pair.second)
+		if len(cmap) == len(jb) {
 			if calculateGroupSizesP2(jb) {
 				return jb[pair.first].x * jb[pair.second].x
 			}

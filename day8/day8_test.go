@@ -36,7 +36,7 @@ func TestJunctionBoxesP2(t *testing.T) {
 
 	t.Run("input.txt", func(t *testing.T) {
 		got := JunctionBoxesP2("input.txt")
-		want := 4884971897
+		want := 4884971896
 
 		if got != want {
 			t.Errorf("got %d, want %d", got, want)
