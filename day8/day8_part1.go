@@ -3,7 +3,6 @@ package day8
 import (
 	"bufio"
 	"container/list"
-	"fmt"
 	"math"
 	"os"
 	"slices"
@@ -40,8 +39,6 @@ func calculateGroupSizes(jb []JB) int {
 			cmap[val.id] = val.connected
 		}
 	}
-	fmt.Printf("%v\n\n", cmap)
-
 	groups := make([][]int, len(cmap))
 	idx := 0
 
@@ -74,10 +71,6 @@ func calculateGroupSizes(jb []JB) int {
 	sort.SliceStable(groups, func(i, j int) bool {
 		return len(groups[i]) > len(groups[j])
 	})
-
-	for _, group := range groups {
-		fmt.Printf("%v\n", group)
-	}
 
 	return len(groups[0]) * len(groups[1]) * len(groups[2])
 }
@@ -112,8 +105,6 @@ func findShortestDistance(jb []JB, pairs int) {
 	sort.Slice(dictSlice, func(i, j int) bool {
 		return dictSlice[i].second < dictSlice[j].second
 	})
-
-	fmt.Printf("%v\n", dictSlice)
 
 	for i, k := range dictSlice {
 		if i >= pairs * 2{
