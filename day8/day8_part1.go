@@ -23,11 +23,19 @@ func (jb *JB) Equal(ajb JB) bool {
 	return jb.x == ajb.x && jb.y == ajb.y && jb.z == ajb.z && jb.id == ajb.id
 }
 
+type Pair struct {
+	first  int
+	second int
+}
+
+type KV struct {
+	first  Pair
+	second int
+}
+
 func JunctionBoxes(fp string, pairs int) int {
 	jb := readFileAndParse(fp)
-
 	findShortestDistance(jb, pairs)
-
 	return calculateGroupSizes(jb)
 }
 
@@ -75,16 +83,6 @@ func calculateGroupSizes(jb []JB) int {
 	return len(groups[0]) * len(groups[1]) * len(groups[2])
 }
 
-type Pair struct {
-	first  int
-	second int
-}
-
-type KV struct {
-	first  Pair
-	second int
-}
-
 func findShortestDistance(jb []JB, pairs int) {
 
 	mappy := make(map[Pair]int)
@@ -107,11 +105,11 @@ func findShortestDistance(jb []JB, pairs int) {
 	})
 
 	for i, k := range dictSlice {
-		if i >= pairs * 2{
+		if i >= pairs*2 {
 			break
 		}
 		// gets us the two ids that are connected
-		pair := k.first 
+		pair := k.first
 		jb[pair.first].connected = append(jb[pair.first].connected, pair.second)
 	}
 }
