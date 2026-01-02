@@ -22,3 +22,22 @@ func TestLargestArea(t *testing.T) {
 	})
 }
 
+func TestLargestRectangle(t *testing.T) {
+	t.Run("example.txt", func(t *testing.T) {
+		got := MakeLargestRectangle("example.txt")
+		want := 24
+
+		if got != want {
+			t.Errorf("got %d, want %d", got, want)
+		}
+	})
+
+	t.Run("input.txt", func(t *testing.T) {
+		got := MakeLargestRectangle("input.txt")
+		want := 1571016172
+
+		if got != want {
+			t.Errorf("got %d, want %d", got, want)
+		}
+	})
+}
