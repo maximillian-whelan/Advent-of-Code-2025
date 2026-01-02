@@ -1,4 +1,4 @@
-package aoc25
+package day01
 
 import (
 	"strconv"

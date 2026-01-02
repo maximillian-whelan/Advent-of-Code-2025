@@ -1,4 +1,4 @@
-package aoc25
+package day01
 
 import "testing"
 
@@ -86,15 +86,3 @@ func TestPart2(t *testing.T) {
 	}
 }
 
-var testInput = []string{
-	"L68",
-	"L30",
-	"R48",
-	"L5",
-	"R60",
-	"L55",
-	"L1",
-	"L99",
-	"R14",
-	"L82",
-}
