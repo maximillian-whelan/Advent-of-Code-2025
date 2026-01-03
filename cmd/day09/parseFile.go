@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/maximillian-whelan/aoc25/internal/file"
+	"github.com/maximillian-whelan/advent-of-code-2025/internal/file"
 )
 
 func readFile(fp string) BoundingBox {
